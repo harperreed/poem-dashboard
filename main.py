@@ -131,4 +131,4 @@ if __name__ == '__main__':
     scheduler = BackgroundScheduler()
     scheduler.add_job(generate_and_store_message, 'interval', minutes=1)  # Set interval here
     scheduler.start()
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
