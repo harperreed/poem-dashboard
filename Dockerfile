@@ -10,11 +10,6 @@ COPY requirements.txt ./
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt gunicorn
 
-# Copy the startup script into the container
-COPY startup.sh /usr/src/app/startup.sh
-
-# Make the startup script executable
-RUN chmod +x /usr/src/app/startup.sh
 
 # Copy the rest of the application files into the container
 COPY . .
@@ -22,6 +17,7 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 5000
 
-# Use the startup script as the entry point
-CMD ["/usr/src/app/startup.sh"]
+# Command to run the application
+# CMD ["gunicorn", "-b", "0.0.0.0:5000", "main:app"]
 
+CMD ["python", "main.py"]
