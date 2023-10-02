@@ -13,7 +13,8 @@ from datetime import datetime, timedelta
 app = Flask(__name__)
 socketio = SocketIO(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messages.db'  # Configure database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////usr/src/app/database/database.db'
+
 db = SQLAlchemy(app)
 
 class Message(db.Model):

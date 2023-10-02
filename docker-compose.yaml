@@ -7,7 +7,10 @@ services:
       - "5000:5000"
     volumes:
       - .:/usr/src/app
-      - ./instance:/usr/src/app/instance
+      - db-data:/usr/src/app/database  # Adjust the path as needed
     environment:
       - FLASK_ENV=development
       - OPENAI_API_KEY=sk-<your key here>
+
+volumes:
+  db-data:
