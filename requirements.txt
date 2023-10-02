@@ -1,0 +1,5 @@
+apscheduler
+feedparser
+flask_socketio
+flask_sqlalchemy
+openai

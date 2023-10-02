@@ -7,15 +7,12 @@ services:
       - "5000:5000"
     volumes:
       - .:/usr/src/app
+      - ./instance:/usr/src/app/instance
     environment:
       - FLASK_ENV=development
       - OPENAI_API_KEY=sk-<your key here>
     depends_on:
       - db
-  db:
-    image: nickschuch/sqlite3
-    volumes:
-      - db-data:/root/db
 
 volumes:
   db-data:
