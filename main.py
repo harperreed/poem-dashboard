@@ -100,7 +100,7 @@ def generate_poem(length=20):
 def generate_and_store_message():
     with app.app_context():
       latest_message = Message.query.order_by(Message.id.desc()).first()
-      if latest_message and (datetime.utcnow() - latest_message.timestamp) < timedelta(minutes=2):
+      if latest_message and (datetime.utcnow() - latest_message.timestamp) < timedelta(hours=2):
           # If a message was generated within the last hour, do nothing
           message = Message.query.order_by(Message.id.desc()).first()  # Get the latest message
           socketio.emit('message_update', {'message': message.content})
