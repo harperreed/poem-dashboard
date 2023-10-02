@@ -11,8 +11,3 @@ services:
     environment:
       - FLASK_ENV=development
       - OPENAI_API_KEY=sk-<your key here>
-    depends_on:
-      - db
-
-volumes:
-  db-data:
