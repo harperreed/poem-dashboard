@@ -1,14 +1,15 @@
-from flask import Flask, render_template
-from flask_socketio import SocketIO
 from apscheduler.schedulers.background import BackgroundScheduler
-import feedparser
-import random
-import string
-import requests
-from pprint import pprint
-from flask_sqlalchemy import SQLAlchemy
-import openai
 from datetime import datetime, timedelta
+from flask import Flask, render_template
+from flask_migrate import Migrate
+from flask_socketio import SocketIO
+from flask_sqlalchemy import SQLAlchemy
+from pprint import pprint
+import feedparser
+import openai
+import random
+import requests
+import string
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -16,6 +17,8 @@ socketio = SocketIO(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////usr/src/app/database/database.db'
 
 db = SQLAlchemy(app)
+
+migrate = Migrate(app, db)
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)

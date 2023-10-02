@@ -3,3 +3,4 @@ feedparser
 flask_socketio
 flask_sqlalchemy
 openai
+flask_migrate
