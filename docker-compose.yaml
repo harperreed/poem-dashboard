@@ -9,8 +9,8 @@ services:
       - .:/usr/src/app
       - db-data:/usr/src/app/database  # Adjust the path as needed
     environment:
-      - FLASK_ENV=development
-      - OPENAI_API_KEY=sk-<your key here>
+      - FLASK_ENV=${FLASK_ENV}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
 
 volumes:
   db-data:
